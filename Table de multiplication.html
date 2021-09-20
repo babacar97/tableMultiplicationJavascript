@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="calculatrice.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" 
+    crossorigin="anonymous">
+    <title>Table de  multiplications</title>
+    
+</head>
+<body style="background-color: blueviolet;">
+    <div class="container-fluid leep">
+        <div class="container text-center table">
+        
+    <center><h1 class="titre">TABLE</h1></center>
+<h2 class="texte">MULTIPLICATION</h2>
+        <button onclick="soustraction()">-</button>&nbsp;&nbsp;<input type="text" id="input">&nbsp;&nbsp;<button onclick="addition()">+</button><br><br>
+        <button id="calculer" onclick="calculer(Valinput.value)">Calculer</button>&nbsp;&nbsp;<button onclick="Effacer()">Effacer</button>
+    
+    <div id="para" class="divtable"></div>
+      </div>       
+    </div>
+        <script>
+
+        
+            function addition(){
+               
+                var  Valinput =document.getElementById('input').value;
+                Valinput++;
+                document.getElementById('input').value=Valinput;
+                document.getElementById('para').innerHTML='';
+                if(Valinput>=0){
+                document.getElementById('calculer').disabled=false;
+                }
+           
+            }
+
+            function soustraction(){
+                
+                var  Valinput =document.getElementById('input').value;
+                Valinput--;
+                document.getElementById('input').value=Valinput;
+                document.getElementById('para').innerHTML='';
+                if(Valinput<0){
+                document.getElementById('calculer').disabled=true; 
+                }
+            }
+            var  Valinput =document.getElementById('input');
+             var resultat= document.getElementById('para');
+            //  resultat.innerHTML=calculer(valinput.value);
+                
+                function calculer(Valinput){
+
+                    //    writeln("table de"+i);
+                    //    writeln("<br>");
+                 if(Valinput>0){ 
+                for (var j=1; j <=10; j++) {
+                    //   writeln(i+ "*"+j+"="+ i*j+'<br>');
+                      document.getElementById('para').innerHTML+=Valinput+ "*"+j+"="+ Valinput*j+'<br>';
+                }
+            }else{
+                document.getElementById('calculer').disabled=true;
+            }
+
+            }
+
+            function Effacer(){
+                document.getElementById('input').value='';
+                document.getElementById('para').innerHTML=''; 
+                document.getElementById('calculer').disabled=false;
+            }
+
+     </script>
+</body>
+</html>
